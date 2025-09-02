@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="BikerWorldKenya - Master the Road with Expert Motorcycle Training. Get certified, ride safely, and gain confidence on two wheels.">
+    <meta name="keywords" content="motorcycle training, biker training, riding lessons, motorcycle certification, safe riding, biker school">
+    <title>BikerWorldKenya Motorcycle Training School</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.min.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'biker-primary': '#166088',
+              'biker-blue': '#2c6c8c',
+              'biker-light': '#fff',
+              'biker-gray': '#C0D6DF',
+              'biker-dark': '#4D6A6D',
+              'biker-accent': '#69A2B0'
+            }
+          }
+        }
+      }
+    </script>
+    <style id="app-style">
+      .hero-section {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hero.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+      }
+      
+      .course-card {
+        transition: transform 0.3s ease-in-out;
+      }
+      
+      .course-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .gallery-img {
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      
+      .gallery-img:hover {
+        transform: scale(1.05);
+      }
+      
+      /* Custom loading spinner */
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top: 4px solid #e63946;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .whatsapp-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+    </style>
+  </head>
+  <body class="bg-biker-light dark:bg-biker-dark text-biker-blue dark:text-white">
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed w-full bg-biker-light dark:bg-biker-dark shadow-md z-50 transition-all duration-300">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <a href="#home" class="dark:hidden flex items-center">
+           <img class="h-16" src="/logo-dark.svg" alt="">
+          </a>
+
+          <a href="#home" class="hidden dark:block flex items-center">
+           <img class="h-16" src="/logo-white.svg" alt="">
+          </a>
+          
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8">
+            <a href="#home" class="font-medium hover:text-biker-accent transition">Home</a>
+            <a href="#courses" class="font-medium hover:text-biker-accent transition">Courses</a>
+            <a href="#gallery" class="font-medium hover:text-biker-accent transition">Gallery</a>
+            <a href="#about" class="font-medium hover:text-biker-accent transition">About Us</a>
+            <a href="#faq" class="font-medium hover:text-biker-accent transition">FAQ</a>
+            <a href="#contact" class="font-medium hover:text-biker-accent transition">Contact</a>
+          </nav>
+          
+          <div class="flex items-center space-x-4">
+            <!-- Dark Mode Toggle -->
+            <button id="darkModeToggle" class="p-2 rounded-full hover:bg-biker-gray dark:hover:bg-biker-gray">
+              <i class="fas fa-moon text-gray-600 dark:text-yellow-300 dark:hidden"></i>
+              <i class="fas fa-sun text-orange-500 hidden dark:block"></i> 
+            </button>
+            
+            <!-- CTA Button -->
+            <a href="https://wa.me/254740204010?text=Hi!%20I'm%20interested%20in%20your%20courses?" 
+                       target="_blank" 
+                       class="bg-biker-primary hover:bg-green-600 text-white font-medium py-2 px-4 rounded-full flex items-center whatsapp-pulse">
+                        <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-biker-blue dark:text-white">
+              <i class="fas fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
+          <a href="#home" class="block py-2 hover:text-biker-accent">Home</a>
+          <a href="#courses" class="block py-2 hover:text-biker-accent">Courses</a>
+          <a href="#gallery" class="block py-2 hover:text-biker-accent">Gallery</a>
+          <a href="#about" class="block py-2 hover:text-biker-accent">About Us</a>
+          <a href="#faq" class="block py-2 hover:text-biker-accent">FAQ</a>
+          <a href="#contact" class="block py-2 hover:text-biker-accent">Contact</a>
+          <a href="#enroll" class="block py-2 mt-2 bg-biker-primary hover:bg-biker-accent text-white font-bold px-4 rounded-md transition text-center">
+            Enroll Now
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center">
+      <div class="container mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Expert-Level Rider Training in Kenya</h1>
+        <p class="text-xl md:text-2xl text-gray-200 mb-8">Ride Skilled - Ride Confident - Ride Safe.</p>
+        <a href="#enroll" class="bg-biker-primary hover:bg-biker-accent text-white font-bold py-3 px-8 rounded-lg text-lg transition shadow-lg hover:shadow-xl">
+          Enroll Now
+        </a>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <img src="https://images.unsplash.com/photo-1723200997767-59b0bc538f34?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAzM3x8bW90b3JjeWNsZXxlbnwwfHwwfHx8MA%3D%3D" alt="Motorcycle instructors at BikerWorldKenya" class="rounded-lg shadow-xl">
+          </div>
+          <div class="md:w-1/2 md:pl-12">
+            <h2 class="text-biker-primary text-3xl font-bold mb-6">About BikerWorldKenya</h2>
+            <p class="text-biker-dark dark:text-biker-light text-lg mb-6">Founded in 2018 by a team of passionate motorcycle enthusiasts, BikerWorldKenya has become the go to motorcycle training school for riders of all experience levels.</p>
+            <div class="p-6 bg-gray-100 dark:bg-biker-blue rounded-lg mb-6">
+              <h3 class="text-biker-primary dark:text-biker-accent text-xl font-semibold mb-3">Our Mission</h3>
+              <p class="text-biker-dark dark:text-biker-light italic text-lg">"Empowering riders with safety, skill, and confidence."</p>
+            </div>
+            <div class="mb-8">
+              <h3 class="text-biker-primary text-xl font-semibold mb-4">Our Instructors</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                  <i class="fas fa-certificate text-orange-500 mr-3"></i>
+                  <span class="text-biker-dark dark:text-biker-light">Certified Instructors</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-road text-orange-500 mr-3"></i>
+                  <span class="text-biker-dark dark:text-biker-light">10+ Years Experience</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-medal text-orange-500 mr-3"></i>
+                  <span class="text-biker-dark dark:text-biker-light">Safety-Focused</span>
+                </div>
+                <div class="flex items-center">
+                  <i class="fas fa-users text-orange-500 mr-3"></i>
+                  <span class="text-biker-dark dark:text-biker-light">Personalized Attention</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Programs & Packages -->
+    <section id="courses" class="py-20 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-biker-primary text-3xl font-bold mb-4">Our Training Programs</h2>
+          <p class="text-biker-dark dark:text-white text-lg max-w-2xl mx-auto">Choose from our variety of courses designed to take you from beginner to expert. All courses include both classroom and practical training.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Course 1 -->
+          <div class="course-card bg-biker-gray dark:bg-gray-700 rounded-lg shadow-xl overflow-hidden">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1568227441146-d9d774c4fd97?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE0Nnx8bW90b3JjeWNsZXxlbnwwfHwwfHx8MA%3D%3D')"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold">Learn To Ride</h3>
+                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 text-xs font-semibold px-2.5 py-0.5 rounded">Popular</span>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <span><i class="far fa-clock mr-1"></i> 16hrs </span>
+                <span>Ksh 20,000</span>
+              </div>
+              <p class="mb-4 text-biker-dark">Perfect for new riders with little to no experience. Learn the basics and get your license.</p>
+              <div>
+                <h4 class="font-semibold mb-2">Skills Covered:</h4>
+                <ul class="list-disc list-inside space-y-1 text-sm text-biker-dark">
+                  <li>Basic Motorcycle Controls</li>
+                  <li>Starting and Stopping</li>  
+                  <li>Shifting and Turning</li>
+                  <li>Emergency Braking and more</li>
+                </ul>
+              </div>
+              <a href="#enroll" class="bg-biker-primary w-fit mt-4 py-1 px-2 rounded-md text-white shadow-2xl hover:text-orange-500 font-medium flex items-center">
+                <span>Enroll Now</span>
+              </a>
+              <button class="course-details-btn mt-6 text-biker-primary dark:text-biker-accent hover:text-orange-500 font-medium flex items-center">
+                <span>Learn More</span>
+                <i class="fas fa-chevron-down ml-2"></i>
+              </button>
+              <div class="course-details hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                <p class="mb-3">This comprehensive course is designed to give you the essential skills and knowledge to begin your riding journey with confidence. No prior experience necessary. Motorcycles and helmets are provided.</p>
+                <p><strong>Schedule:</strong> Flexible - 2hrs per session</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 2 -->
+          <div class="course-card bg-biker-gray dark:bg-gray-700 rounded-lg shadow-xl overflow-hidden">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1631823479646-9d8ec78161b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI1M3x8bW90b3JjeWNsZXxlbnwwfHwwfHx8MA%3D%3D')"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold">More than Basics</h3>
+                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 text-xs font-semibold px-2.5 py-0.5 rounded">Most Value</span>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <span><i class="far fa-clock mr-1"></i> 12hrs</span>
+                <span>Ksh 15,000</span>
+              </div>
+              <p class="mb-4 text-biker-dark">For riders who already have basic skills but want to improve their skills and road confidence.</p>
+              <div>
+                <h4 class="font-semibold mb-2">Skills Covered:</h4>
+                <ul class="list-disc list-inside space-y-1 text-sm text-biker-dark">
+                  <li>Advanced Cornering Techniques</li>
+                  <li>Advanced Braking Techniques</li>
+                  <li>Defensive Riding</li>
+                  <li>Motorcycle Maintanance and more</li>
+                </ul>
+              </div>
+              <a href="#enroll" class="bg-biker-primary w-fit mt-4 py-1 px-2 rounded-md text-white shadow-2xl hover:text-orange-500 font-medium flex items-center">
+                <span>Enroll Now</span>
+              </a>
+              <button class="course-details-btn mt-6 text-biker-primary dark:text-biker-accent hover:text-orange-500 font-medium flex items-center">
+                <span>Learn More</span>
+                <i class="fas fa-chevron-down ml-2"></i>
+              </button>
+              <div class="course-details hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                <p class="mb-3">Take your riding to the next level with our intermediate to advanced course. Must have at least 6 months of riding experience.</p>
+                <p><strong>Schedule:</strong> Flexible - 2hrs per session</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 4 -->
+          <div class="course-card bg-biker-gray dark:bg-gray-700 rounded-lg shadow-xl overflow-hidden">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1750323075633-5816156b37ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE4OXx8bW90b3JjeWNsZXxlbnwwfHwwfHx8MA%3D%3D')"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold">Defensive Riding</h3>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <span><i class="far fa-clock mr-1"></i> 6hrs </span>
+                <span>Ksh 7000</span>
+              </div>
+              <p class="mb-4 text-biker-dark">Stay safe on the roads with our defensive riding techniques.</p>
+              <div>
+                <h4 class="font-semibold mb-2">Skills Covered:</h4>
+                <ul class="list-disc list-inside space-y-1 text-sm text-biker-dark">
+                  <li>Hazard Awareness and Management</li>
+                  <li>System of Motorcycle Control - IPSGA</li>
+                  <li>Observation skills, Anticipation and Judgement</li>
+                  <li>Highway and Urban Riding and more</li>
+                </ul>
+              </div>
+              <a href="#enroll" class="bg-biker-primary w-fit mt-4 py-1 px-2 rounded-md text-white shadow-2xl hover:text-orange-500 font-medium flex items-center">
+                <span>Enroll Now</span>
+              </a>
+              <button class="course-details-btn mt-6 text-biker-primary dark:text-biker-accent hover:text-orange-500 font-medium flex items-center">
+                <span>Learn More</span>
+                <i class="fas fa-chevron-down ml-2"></i>
+              </button>
+              <div class="course-details hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                <p class="mb-3">This safety-focused course helps riders develop the skills needed to anticipate and avoid dangerous situations on the road.</p>
+                <p><strong>Schedule:</strong> Flexible - 2hrs per session</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 5 -->
+          <div class="course-card bg-biker-gray dark:bg-gray-700 rounded-lg shadow-xl overflow-hidden">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1677699613453-82e2d284769b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTA4Mnx8bW90b3JjeWNsZXxlbnwwfHwwfHx8MA%3D%3D')"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold">Off-Road Adventure</h3>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <span><i class="far fa-clock mr-1"></i>12hrs</span>
+                <span>Ksh 15,000</span>
+              </div>
+              <p class="mb-4 text-biker-dark">Master the specific techniques needed to confidently control and navigate your adventure motorcycle on technical off-road terrain.</p>
+              <div>
+                <h4 class="font-semibold mb-2">Skills Covered:</h4>
+                <ul class="list-disc list-inside space-y-1 text-sm text-biker-dark">
+                  <li>Offroad Braking Techniques</li>
+                  <li>Hill Climbs and Descents</li>
+                  <li>Pivot and Elephant Turns</li>
+                  <li>Offroad Cornering Techniques and more</li>
+                </ul>
+              </div>
+              <a href="#enroll" class="bg-biker-primary w-fit mt-4 py-1 px-2 rounded-md text-white shadow-2xl hover:text-orange-500 font-medium flex items-center">
+                <span>Enroll Now</span>
+              </a>
+              <button class="course-details-btn mt-6 text-biker-primary dark:text-biker-accent hover:text-orange-500 font-medium flex items-center">
+                <span>Learn More</span>
+                <i class="fas fa-chevron-down ml-2"></i>
+              </button>
+              <div class="course-details hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                <p class="mb-3">Bring your adventure bike and prepare to get dirty! Unlock your bike's full potential by learning expert techniques for off-road conditions.</p>
+                <p><strong>Schedule:</strong> Flexible - 2hrs per session</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 6 -->
+          <div class="course-card bg-biker-gray dark:bg-gray-700 rounded-lg shadow-xl overflow-hidden">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1659471799024-781071f3d543?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE3OXx8bW90b3JjeWNsZXxlbnwwfHwwfHx8MA%3D%3D')"></div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-xl font-bold">Private Coaching</h3>
+                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded">Premium</span>
+              </div>
+              <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 mb-4">
+                <span><i class="far fa-clock mr-1"></i> Per Session (2-3hrs)</span>
+                <span>Ksh 3500</span>
+              </div>
+              <p class="mb-4 text-biker-dark">One-on-one training tailored to your specific needs and goals.</p>
+              <div>
+                <h4 class="font-semibold mb-2">Skills Covered:</h4>
+                <ul class="list-disc list-inside space-y-1 text-sm text-biker-dark">
+                  <li>Skill Assessment</li>
+                  <li>Personalized Curriculum</li>
+                  <li>Focus on your Goals</li>
+                  <li>Custom Progression Plan</li>
+                </ul>
+              </div>
+              <a href="#enroll" class="bg-biker-primary w-fit mt-4 py-1 px-2 rounded-md text-white shadow-2xl hover:text-orange-500 font-medium flex items-center">
+                <span>Enroll Now</span>
+              </a>
+              <button class="course-details-btn mt-6 text-biker-primary dark:text-biker-accent hover:text-orange-500 font-medium flex items-center">
+                <span>Learn More</span>
+                <i class="fas fa-chevron-down ml-2"></i>
+              </button>
+              <div class="course-details hidden mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+                <p class="mb-3">Our most exclusive offering. Work directly with one of our expert instructors to build the specific skills you need. Perfect for riders with unique goals.</p>
+                <p><strong>Schedule:</strong> Flexible </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-biker-primary text-3xl font-bold mb-4">Our Training Gallery</h2>
+          <p class="text-biker-dark text-lg max-w-2xl mx-auto">See our facilities, instructors in action, and students mastering their riding skills.</p>
+        </div>
+        
+        <div id="gallery-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <a href="https://cdn.pixabay.com/photo/2016/10/27/02/04/motorcycle-1773556_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2016/10/27/02/04/motorcycle-1773556_1280.jpg" alt="Student practicing cornering" class="w-full h-48 object-cover">
+          </a>
+          <a href="https://cdn.pixabay.com/photo/2016/05/14/17/54/motorcycle-1392149_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2016/05/14/17/54/motorcycle-1392149_1280.jpg" alt="Instructor demonstrating proper technique" class="w-full h-48 object-cover">
+          </a>
+          <a href="https://cdn.pixabay.com/photo/2014/07/31/23/10/biker-407123_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2014/07/31/23/10/biker-407123_1280.jpg" alt="Students in a group lesson" class="w-full h-48 object-cover">
+          </a>
+          <a href="https://cdn.pixabay.com/photo/2016/01/19/16/46/motorcycle-1149389_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2016/01/19/16/46/motorcycle-1149389_1280.jpg" alt="Bike lineup at our facility" class="w-full h-48 object-cover">
+          </a>
+          <a href="https://cdn.pixabay.com/photo/2016/11/18/21/10/dark-1836822_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2016/11/18/21/10/dark-1836822_1280.jpg" alt="Night riding training" class="w-full h-48 object-cover">
+          </a>
+          <a href="https://cdn.pixabay.com/photo/2016/11/14/03/11/buddhist-1822518_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2016/11/14/03/11/buddhist-1822518_1280.jpg" alt="Student receiving certification" class="w-full h-48 object-cover">
+          </a>
+          <a href="https://cdn.pixabay.com/photo/2018/01/17/16/41/motorcycle-3088634_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2018/01/17/16/41/motorcycle-3088634_1280.jpg" alt="Off-road training area" class="w-full h-48 object-cover">
+          </a>
+          <a href="https://cdn.pixabay.com/photo/2016/03/27/16/05/motorcycle-1283299_1280.jpg" class="gallery-img block rounded-lg overflow-hidden">
+            <img src="https://cdn.pixabay.com/photo/2016/03/27/16/05/motorcycle-1283299_1280.jpg" alt="Classroom instruction" class="w-full h-48 object-cover">
+          </a>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Why Choose BikerWorldKenya?</h2>
+          <p class="text-lg max-w-2xl mx-auto">We pride ourselves on providing the highest quality motorcycle training experience available.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Reason 1 -->
+          <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-xl text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-orange-500 text-white">
+              <i class="fas fa-certificate text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Certified Instructors</h3>
+            <p>All our instructors are certified with years of teaching and riding experience.</p>
+          </div>
+          
+          <!-- Reason 2 -->
+          <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-xl text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-orange-500 text-white">
+              <i class="fas fa-hands-helping text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Hands-on Training</h3>
+            <p>Our courses emphasize practice and real-world application of skills, not just theory.</p>
+          </div>
+          
+          <!-- Reason 3 -->
+          <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-xl text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-orange-500 text-white">
+              <i class="fas fa-calendar-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Flexible Schedules</h3>
+            <p>Weekend, evening, and weekday courses available to fit your busy lifestyle.</p>
+          </div>
+          
+          <!-- Reason 4 -->
+          <div class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-xl text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-orange-500 text-white">
+              <i class="fas fa-users text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">Small Class Sizes</h3>
+            <p>Maximum 2:1 student-to-instructor ratio ensures personalized attention.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- Testimonials -->
+    <section class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 dark:text-white">What Our Students Say</h2>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <div class="testimonial-carousel flex overflow-x-auto scrollbar-hide space-x-4 pb-4">
+                    <!-- Testimonial slides will be added here by JavaScript -->
+                </div>
+                
+                <button id="prevTestimonial" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white dark:bg-gray-700 p-2 rounded-full shadow-md">
+                    <i class="fas fa-chevron-left text-orange-500"></i>
+                </button>
+                <button id="nextTestimonial" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white dark:bg-gray-700 p-2 rounded-full shadow-md">
+                    <i class="fas fa-chevron-right text-orange-500"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p class="text-biker-dark text-lg max-w-2xl mx-auto">Got questions? We've got answers. If you don't see your question here, feel free to contact us.</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item mb-6">
+            <button class="faq-question flex justify-between items-center w-full bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-left">
+              <span class="text-lg font-medium">Do I need my own motorcycle and riding gear for training?</span>
+              <i class="fas fa-plus text-biker-primary"></i>
+            </button>
+            <div class="faq-answer hidden bg-white dark:bg-gray-800 p-4 rounded-b-lg border-t-0 shadow-inner">
+              <p>For our beginner courses, we provide motorcycles and riding gear for your use during training. For intermediate and advanced courses, we recommend bringing your own motorcycle to train on the bike you'll be riding day-to-day. If that's not possible, we have a selection of bikes available for an additional rental fee.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="faq-item mb-6">
+            <button class="faq-question flex justify-between items-center w-full bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-left">
+              <span class="text-lg font-medium">What's the pass rate for your courses?</span>
+              <i class="fas fa-plus text-biker-primary"></i>
+            </button>
+            <div class="faq-answer hidden bg-white dark:bg-gray-800 p-4 rounded-b-lg border-t-0 shadow-inner">
+              <p>Our beginner course has a 98% first-time pass rate. We attribute this to our small class sizes and personalized instruction. If you don't pass on your first attempt, we offer a free retake of the evaluation portion of the course.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div class="faq-item mb-6">
+            <button class="faq-question flex justify-between items-center w-full bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-left">
+              <span class="text-lg font-medium">What gear do I need to bring?</span>
+              <i class="fas fa-plus text-biker-primary"></i>
+            </button>
+            <div class="faq-answer hidden bg-white dark:bg-gray-800 p-4 rounded-b-lg border-t-0 shadow-inner">
+              <p>For all courses, you must wear: a DOT-approved helmet (we have loaners available), eye protection, full-fingered gloves, long pants, a long-sleeved shirt or jacket, and over-the-ankle footwear. We strongly recommend motorcycle-specific protective gear, especially for advanced courses.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 4 -->
+          <div class="faq-item mb-6">
+            <button class="faq-question flex justify-between items-center w-full bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-left">
+              <span class="text-lg font-medium">Will I get a certificate upon completing my course?</span>
+              <i class="fas fa-plus text-biker-primary"></i>
+            </button>
+            <div class="faq-answer hidden bg-white dark:bg-gray-800 p-4 rounded-b-lg border-t-0 shadow-inner">
+              <p>Upon successful completion of any of our Courses, you'll receive a completion certificate.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 5 -->
+          <div class="faq-item mb-6">
+            <button class="faq-question flex justify-between items-center w-full bg-gray-100 dark:bg-gray-700 p-4 rounded-lg text-left">
+              <span class="text-lg font-medium">What happens if it rains during my course?</span>
+              <i class="fas fa-plus text-biker-primary"></i>
+            </button>
+            <div class="faq-answer hidden bg-white dark:bg-gray-800 p-4 rounded-b-lg border-t-0 shadow-inner">
+              <p>We train in light rain as it provides valuable real-world experience. In case of severe weather, we may reschedule the riding portion. If this happens, we'll work with you to find a convenient time to complete your training at no additional cost.</p>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- Enrollment Form -->
+    <section id="enroll" class="py-20 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Ready to Ride? Enroll Now</h2>
+          <p class="text-lg max-w-2xl mx-auto">Complete the form below to reserve your spot in one of our upcoming courses.</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto bg-white dark:bg-gray-700 rounded-lg shadow-lg p-8">
+          <form method="POST" action="https://formspree.io/f/mkgvzayp" id="enrollmentForm" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
+                <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+              </div>
+              
+              <div>
+                <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+              </div>
+              
+              <div>
+                <label for="phone" class="block text-sm font-medium mb-1">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+              </div>
+              
+              <div>
+                <label for="course" class="block text-sm font-medium mb-1">Select Course</label>
+                <select id="course" name="course" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+                  <option value="">-- Choose a course --</option>
+                  <option value="beginner">Learn To Ride</option>
+                  <option value="intermediate">More Than Basics</option>
+                  <option value="defensive">Defensive Riding</option>
+                  <option value="offroad">Off-Road Adventure</option>
+                  <option value="private">Private Coaching</option>
+                </select>
+              </div>
+              
+              <div>
+                <label for="date" class="block text-sm font-medium mb-1">Preferred Date</label>
+                <input type="text" id="date" name="date" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" placeholder="Select a date">
+              </div>
+              
+              <div>
+                <label for="experience" class="block text-sm font-medium mb-1">Experience Level</label>
+                <select id="experience" name="experience" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+                  <option value="">-- Select level --</option>
+                  <option value="none">No experience</option>
+                  <option value="beginner">Beginner (< 1 year)</option>
+                  <option value="intermediate">Intermediate (1-3 years)</option>
+                  <option value="advanced">Advanced (3+ years)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div>
+              <label for="notes" class="block text-sm font-medium mb-1">Additional Notes</label>
+              <textarea id="notes" name="notes" rows="4" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800"></textarea>
+            </div>
+            
+            <div>
+              <button type="submit" class="w-full bg-biker-primary hover:bg-orange-500 text-white font-bold py-3 px-6 rounded-md transition flex items-center justify-center">
+                <span>Submit Enrollment</span>
+              </button>
+            </div>
+          </form>
+          
+          <!-- Form Feedback States (hidden by default) -->
+          <div id="formLoading" class="hidden mt-6 flex flex-col items-center justify-center p-6">
+            <div class="loading-spinner mb-4"></div>
+            <p class="text-lg">Processing your enrollment...</p>
+          </div>
+          
+          <div id="formSuccess" class="hidden mt-6 bg-green-100 dark:bg-green-900 border-l-4 border-green-500 p-4">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+              </div>
+              <div class="ml-3">
+                <p class="text-green-800 dark:text-green-100 font-medium">Enrollment submitted successfully!</p>
+                <p class="text-green-700 dark:text-green-200 text-sm mt-1">We'll contact you shortly to confirm your reservation.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div id="formError" class="hidden mt-6 bg-red-100 dark:bg-red-900 border-l-4 border-red-500 p-4">
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <i class="fas fa-exclamation-circle text-red-500 text-xl"></i>
+              </div>
+              <div class="ml-3">
+                <p class="text-red-800 dark:text-red-100 font-medium">There was a problem submitting your enrollment.</p>
+                <p class="text-red-700 dark:text-red-200 text-sm mt-1">Please try again or contact us directly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+          <p class="text-lg max-w-2xl mx-auto">Have questions? Get in touch with our team and we'll be happy to help.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div>
+            <div class="mb-8">
+              <h3 class="text-xl font-bold mb-4">Our Location</h3>
+              <div class="bg-gray-200 dark:bg-gray-700 rounded-lg w-full h-64 flex items-center justify-center">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.792093633381!2d36.67977997507102!3d-1.2995471356409483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1d00622badc9%3A0x378bfaab1d9f4b4!2sPizza%20Inn%20Karen%20End!5e0!3m2!1sen!2ske!4v1755591861964!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <p class="mt-4">Nairobi, Karen-End/Karinde</p>
+            </div> <br><br>
+            
+            <div>
+              <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <div class="bg-orange-500 rounded-full w-10 h-10 flex items-center justify-center text-white mr-3">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <span>+254 740204010</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-orange-500 rounded-full w-10 h-10 flex items-center justify-center text-white mr-3">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <span>info@bikerworldKenya.com</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="bg-orange-500 rounded-full w-10 h-10 flex items-center justify-center text-white mr-3">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div>
+                    <p>Tuesday-Friday: 9am-6pm</p>
+                    <p>Saturday-Sunday: 8am-2pm</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-8">
+                <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                  <a href="javascript:void(0)" class="bg-biker-blue hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="javascript:void(0)" class="bg-biker-blue hover:bg-blue-500 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a href="javascript:void(0)" class="bg-biker-blue hover:bg-pink-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="javascript:void(0)" class="bg-biker-blue hover:bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-4">Send Us a Message</h3>
+            <form method="POST"  action="https://formspree.io/f/mwpnqjgw" class="space-y-4">
+              <div>
+                <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+              </div>
+              
+              <div>
+                <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+              </div>
+              
+              <div>
+                <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                <input type="text" id="subject" name="subject" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required>
+              </div>
+              
+              <div>
+                <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                <textarea id="message" name="message" rows="5" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:ring-biker-primary focus:border-biker-primary dark:bg-gray-800" required></textarea>
+              </div>
+              
+              <div>
+                <button type="submit" class="bg-biker-primary hover:bg-orange-500 text-white font-bold py-2 px-6 rounded-md transition">
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-biker-blue dark:bg-biker-dark text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-6">
+              <a href="#home" class="flex items-center">
+                <img class="h-16" src="/logo-white.svg" alt="">
+              </a>
+            </div>
+            <p class="mb-6">Empowering riders with safety, skill, and confidence since 2018.</p>
+            <div class="flex space-x-4">
+              <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="javascript:void(0)" class="text-gray-300 hover:text-white transition">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#home" class="hover:text-biker-primary transition">Home</a></li>
+              <li><a href="#courses" class="hover:text-biker-primary transition">Courses</a></li>
+              <li><a href="#gallery" class="hover:text-biker-primary transition">Gallery</a></li>
+              <li><a href="#about" class="hover:text-biker-primary transition">About Us</a></li>
+              <li><a href="#faq" class="hover:text-biker-primary transition">FAQ</a></li>
+              <li><a href="#contact" class="hover:text-biker-primary transition">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Courses</h3>
+            <ul class="space-y-2">
+              <li><a href="#courses" class="hover:text-biker-primary transition">Learn To Ride</a></li>
+              <li><a href="#courses" class="hover:text-biker-primary transition">More Than Basics</a></li>
+              <li><a href="#courses" class="hover:text-biker-primary transition">Defensive Riding</a></li>
+              <li><a href="#courses" class="hover:text-biker-primary transition">Off-Road Adventure</a></li>
+              <li><a href="#courses" class="hover:text-biker-primary transition">Private Coaching</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-map-marker-alt mt-1 mr-3 text-orange-500"></i>
+                <span>Nairobi, Karen-end/Karinde</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-phone mr-3 text-orange-500"></i>
+                <span>+254 740204010</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-envelope mr-3 text-orange-500"></i>
+                <span>info@bikerworldkenya.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p>© 2025 bikerworldkenya. All rights reserved.</p>
+          <div class="mt-4 md:mt-0">
+            <a href="javascript:void(0)" class="text-sm text-gray-400 hover:text-white mr-4 transition">Privacy Policy</a>
+            <a href="javascript:void(0)" class="text-sm text-gray-400 hover:text-white transition">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script id="app-script">
+      // Dark Mode Toggle
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const html = document.documentElement;
+      
+      // Check for saved dark mode preference or use system preference
+      if (localStorage.getItem('darkMode') === 'true' || 
+          (!localStorage.getItem('darkMode') && 
+           window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        html.classList.add('dark');
+      }
+      
+      darkModeToggle.addEventListener('click', function() {
+        html.classList.toggle('dark');
+        localStorage.setItem('darkMode', html.classList.contains('dark'));
+      });
+      
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        if (mobileMenu.classList.contains('hidden')) {
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+        } else {
+          mobileMenuBtn.innerHTML = '<i class="fas fa-times text-2xl"></i>';
+        }
+      });
+      
+      // Header Shrink on Scroll
+      const header = document.getElementById('header');
+      
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          header.classList.add('py-2');
+          header.classList.remove('py-3');
+        } else {
+          header.classList.add('py-3');
+          header.classList.remove('py-2');
+        }
+      });
+      
+      // Course Details Toggle
+      const courseDetailsBtns = document.querySelectorAll('.course-details-btn');
+      
+      courseDetailsBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const details = this.nextElementSibling;
+          details.classList.toggle('hidden');
+          
+          const icon = this.querySelector('i');
+          if (details.classList.contains('hidden')) {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+          } else {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+          }
+        });
+      });
+      
+      // FAQ Accordion
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          const answer = this.nextElementSibling;
+          const icon = this.querySelector('i');
+          
+          // Close other open FAQs
+          document.querySelectorAll('.faq-answer').forEach(item => {
+            if (item !== answer && !item.classList.contains('hidden')) {
+              item.classList.add('hidden');
+              const otherIcon = item.previousElementSibling.querySelector('i');
+              otherIcon.classList.remove('fa-minus');
+              otherIcon.classList.add('fa-plus');
+            }
+          });
+          
+          answer.classList.toggle('hidden');
+          
+          if (answer.classList.contains('hidden')) {
+            icon.classList.remove('fa-minus');
+            icon.classList.add('fa-plus');
+          } else {
+            icon.classList.remove('fa-plus');
+            icon.classList.add('fa-minus');
+          }
+        });
+      });
+      
+      // Initialize Flatpickr Date Picker
+      flatpickr("#date", {
+        minDate: "today",
+        dateFormat: "Y-m-d",
+        disable: [
+          function(date) {
+            // Disable past dates
+            return date < new Date();
+          }
+        ]
+      });
+      
+      // Initialize LightGallery
+      document.addEventListener('DOMContentLoaded', function() {
+        lightGallery(document.getElementById('gallery-container'));
+      });
+      
+      // Form Submission Handlers
+    /*  const enrollmentForm = document.getElementById('enrollmentForm');
+      const contactForm = document.getElementById('contactForm');
+      const formLoading = document.getElementById('formLoading');
+      const formSuccess = document.getElementById('formSuccess');
+      const formError = document.getElementById('formError');
+      
+      enrollmentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        enrollmentForm.classList.add('hidden');
+        formLoading.classList.remove('hidden');
+        
+        // Simulate API call
+        setTimeout(() => {
+          formLoading.classList.add('hidden');
+          formSuccess.classList.remove('hidden');
+          
+          // Reset form after successful submission
+          enrollmentForm.reset();
+        }, 1500);
+      });
+      
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const data = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            alert("✅ Message sent! We’ll get back to you soon.");
+            form.reset();
+          }
+        } catch (error) {
+          alert("⚠️ Network error. Please try later.");
+        }
+      }); */
+
+      //dom elements
+       const testimonialContainer = document.querySelector('.testimonial-carousel');
+        const prevTestimonialBtn = document.getElementById('prevTestimonial');
+        const nextTestimonialBtn = document.getElementById('nextTestimonial');
+       // Testimonials data
+        const testimonials = [
+            {
+                name: "Hellen N.",
+                role: "Learn To Ride Course Graduate",
+                content: "I was nervous about learning to ride, but the instructors at BikerWorldKenya made me feel completely comfortable. Their patience and expertise helped me gain confidence quickly. Now I ride my own bike to work every day!",
+                rating: 5
+            },
+            {
+                name: "Ben M.",
+                role: "Defensive Riding Course Graduate",
+                content: "The defensive riding course took my riding skills to the next level. I learned techniques that have made me a much safer rider. The one on one sessions meant I got plenty of individual attention.",
+                rating: 5
+            },
+            {
+                name: "James N.",
+                role: "More Than Basics Course Graduate",
+                content: "The course was worth every penny. I ride a sportbike and always struggled with confidence in turns. After this course, I feel in complete control. The instructors are truly experts.",
+                rating: 5
+            },
+            {
+                name: "David K.",
+                role: "Learn To Ride Course Graduate",
+                content: "As someone who had never ridden before, I was amazed at how much I learned in just two days. The structured approach and focus on safety gave me a solid foundation. Highly recommend BikerWorldKenya!",
+                rating: 5
+            }
+        ];
+
+         // Populate testimonials
+        testimonials.forEach((testimonial, index) => {
+            const stars = '★'.repeat(testimonial.rating) + '☆'.repeat(5 - testimonial.rating);
+            
+            const testimonialSlide = document.createElement('div');
+            testimonialSlide.className = 'testimonial-slide flex-shrink-0 w-4/5 md:w-2/3 bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md';
+            testimonialSlide.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <div class="text-orange-500 mr-2">${stars}</div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-300 mb-4 italic">"${testimonial.content}"</p>
+                <div class="font-semibold dark:text-white">${testimonial.name}</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">${testimonial.role}</div>
+            `;
+            
+            testimonialContainer.appendChild(testimonialSlide);
+        });
+
+        // Testimonial carousel navigation
+        let currentTestimonial = 0;
+        
+        function updateTestimonialPosition() {
+            const testimonialWidth = testimonialContainer.querySelector('.testimonial-slide').offsetWidth;
+            testimonialContainer.scrollTo({
+                left: currentTestimonial * (testimonialWidth + 16), // 16px for gap
+                behavior: 'smooth'
+            });
+        }
+        
+        nextTestimonialBtn.addEventListener('click', () => {
+            currentTestimonial = Math.min(currentTestimonial + 1, testimonials.length - 1);
+            updateTestimonialPosition();
+        });
+        
+        prevTestimonialBtn.addEventListener('click', () => {
+            currentTestimonial = Math.max(currentTestimonial - 1, 0);
+            updateTestimonialPosition();
+        });
+    </script>
+  </body>
+</html>
