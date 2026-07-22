@@ -23,15 +23,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.52473018"
-     inkscape:cx="43.832051"
-     inkscape:cy="-14.29306"
+     inkscape:zoom="1.0494604"
+     inkscape:cx="335.41048"
+     inkscape:cy="145.31278"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="g28" />
   <defs
      id="defs1">
     <rect
@@ -304,11 +304,11 @@
           </g>
           <text
              xml:space="preserve"
-             transform="translate(-180.58578,-369.28092)"
+             transform="matrix(1.4204529,0,0,0.91391643,-287.22442,-332.78303)"
              id="text28"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:Elephant;-inkscape-font-specification:'Elephant, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect28);display:inline;fill:#2c6c8c;fill-opacity:1;stroke-width:5.15906;stroke-dasharray:none"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.3333px;font-family:'Calisto MT';-inkscape-font-specification:'Calisto MT, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect28);display:inline;fill:#2c6c8c;fill-opacity:1;stroke-width:5.15906;stroke-dasharray:none"><tspan
                x="253.00391"
-               y="416.38985"
+               y="416.23439"
                id="tspan2">Rider Training Academy</tspan></text>
         </g>
       </g>
