@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
+   width="197.45256mm"
+   height="43.597351mm"
+   viewBox="0 0 197.45256 43.597351"
    version="1.1"
    id="svg1"
    inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
@@ -23,61 +23,62 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.0494604"
-     inkscape:cx="184.85691"
-     inkscape:cy="452.13714"
+     inkscape:zoom="0.52473018"
+     inkscape:cx="43.832051"
+     inkscape:cy="-14.29306"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="33d25a3dc0" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <rect
-       x="253.00489"
-       y="404.26879"
+       x="253.00488"
+       y="404.2688"
        width="192.70145"
        height="17.181423"
        id="rect28" />
     <rect
        x="258.73203"
-       y="406.62703"
+       y="406.62704"
        width="170.80357"
        height="15.49697"
        id="rect27" />
     <rect
-       x="256.37379"
-       y="406.96392"
+       x="256.37378"
+       y="406.96393"
        width="191.3539"
-       height="16.507642"
+       height="16.507643"
        id="rect26" />
     <clipPath
        id="ccf93b696d">
       <path
-         d="M0.796875 15 73 15 73 75.3281 0.796875 75.3281Z"
+         d="M 0.796875,15 H 73 V 75.3281 H 0.796875 Z"
          id="path1" />
     </clipPath>
     <clipPath
        id="7527af9f57">
       <path
-         d="M28 10.5 53 10.5 53 19 28 19Z"
+         d="M 28,10.5 H 53 V 19 H 28 Z"
          id="path2" />
     </clipPath>
     <clipPath
        id="e52869c1f2">
       <path
-         d="M164.512 20.7266 180.16 20.7266 180.16 36.375 164.512 36.375Z"
+         d="M 164.512,20.7266 H 180.16 V 36.375 h -15.648 z"
          id="path3" />
     </clipPath>
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-6.4767232,-121.29215)">
     <g
        id="33d25a3dc0"
-       transform="matrix(0.26458333,0,0,0.26458333,47.360417,96.572917)">
+       transform="matrix(0.27223036,0,0,0.28789063,42.835237,127.86273)">
       <g
          id="g1"
          transform="matrix(2.3335844,0,0,2.3396669,-135.41747,-47.453549)">
